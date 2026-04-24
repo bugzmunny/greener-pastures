@@ -97,7 +97,6 @@ body {
     transition: var(--transition);
 }
 
-/* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--dark-green) 0%, var(--light-green) 100%);
     color: var(--white);
@@ -120,7 +119,6 @@ body {
     margin-bottom: 2rem;
     animation: slideInUp 0.8s ease-out;
 }
-
 .cta-button {
     display: inline-block;
     background-color: var(--light-green);
@@ -626,4 +624,64 @@ body {
     .services-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* --- Updated Image Styles for Perfect Fit --- */
+
+/* 1. Service Card Images (Home, About, Services pages) */
+.service-image {
+    width: 100%;            /* Full width of the card */
+    height: 220px;          /* Fixed height so all cards are equal */
+    object-fit: cover;      /* Crops image to fill the box without stretching */
+    object-position: center; /* Focuses on the center of the image */
+    display: block;
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Rounded top corners only */
+    margin-bottom: 1.5rem;  /* Space between image and text */
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Gentle zoom effect on hover */
+.service-card:hover .service-image {
+    transform: scale(1.02);
+}
+
+/* 2. Hero Section (Background Image) */
+.hero {
+    /* Keeps your gradient overlay + adds the background image */
+    background: linear-gradient(135deg, rgba(45, 80, 22, 0.85) 0%, rgba(124, 179, 66, 0.85) 100%), 
+                url('images/hero-bg.jpg') center/cover no-repeat;
+    background-attachment: fixed; /* Keeps background still while scrolling */
+    min-height: 500px;      /* Ensures the hero section is tall enough */
+    display: flex;
+    align-items: center;    /* Vertically centers the text */
+    justify-content: center; /* Horizontally centers the text */
+    text-align: center;     /* Centers the text inside */
+}
+
+/* 3. Ensure "Get Started" and Headings stay centered */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Keeps everything stacked and centered */
+    max-width: 800px;       /* Prevents text from getting too wide */
+    margin: 0 auto;         /* Centers the content block */
+}
+
+/* Ensure the CTA button looks good */
+.cta-button {
+    margin-top: 1.5rem;     /* Space between text and button */
+    text-decoration: none;
+    display: inline-block;
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    padding: 12px 30px;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.cta-button:hover {
+    background-color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
